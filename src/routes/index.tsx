@@ -81,6 +81,29 @@ const packs = [
   },
 ];
 
+const problems = [
+  {
+    num: "01",
+    title: "Profil incomplet",
+    desc: "Pas de numéro, pas d'adresse, pas de description claire, pas de photo sérieuse. Le client doute directement.",
+  },
+  {
+    num: "02",
+    title: "Publications irrégulières",
+    desc: "Aujourd'hui tu publies… puis plus rien pendant plusieurs semaines. Le client pense que le business est arrêté ou pas fiable.",
+  },
+  {
+    num: "03",
+    title: "Peu de témoignages",
+    desc: "Le client veut voir des preuves avant de faire confiance. Aucun avis, aucun retour, aucun témoignage — il hésite et part.",
+  },
+  {
+    num: "04",
+    title: "Messages sans réponse",
+    desc: "Un client écrit « Bonjour, c'est combien ? ». Il attend… et finit par acheter ailleurs. Chaque message perdu = un client perdu.",
+  },
+];
+
 const stats = [
   { value: "15+", label: "PME accompagnées" },
   { value: "24 / 7", label: "Automatisation active" },
@@ -97,6 +120,7 @@ function LandingPage() {
         <Stats />
         <Services />
         <Packs />
+        <Problems />
         <Automation />
         <Contact />
       </main>
@@ -366,6 +390,59 @@ function Packs() {
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function Problems() {
+  return (
+    <section id="problemes" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-2xl text-center">
+        <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
+          Diagnostic
+        </div>
+        <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl">
+          Pourquoi votre page{" "}
+          <span className="text-gradient">manque de crédibilité</span> ?
+        </h2>
+        <p className="mt-4 text-muted-foreground">
+          Vous avez peut-être un bon business… mais votre page ne rassure pas.
+          Voici les 4 erreurs les plus fréquentes que nous corrigeons chez nos clients.
+        </p>
+      </div>
+      <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        {problems.map((p) => (
+          <article
+            key={p.num}
+            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:border-primary/50"
+          >
+            <div
+              className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30"
+              aria-hidden
+            />
+            <div className="flex items-start gap-5">
+              <div className="font-display text-4xl font-black text-gradient leading-none">
+                {p.num}
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="mt-12 flex justify-center">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-magenta transition-transform hover:scale-[1.03]"
+        >
+          Qu'attendez-vous pour nous laisser gérer votre page ?
+          <span aria-hidden>→</span>
+        </a>
       </div>
     </section>
   );
