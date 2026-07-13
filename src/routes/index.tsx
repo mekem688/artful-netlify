@@ -469,6 +469,15 @@ function Contact() {
                   <span className="text-lg">✉️</span>
                   globalwebmarketingservice@gmail.com
                 </a>
+                <a
+                  href="https://www.instagram.com/global_webmarketing_services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
+                >
+                  <span className="text-lg">📸</span>
+                  @global_webmarketing_services
+                </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <span className="text-lg">📍</span>
                   Douala, Cameroun
