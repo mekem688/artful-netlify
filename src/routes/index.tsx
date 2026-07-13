@@ -120,6 +120,7 @@ function LandingPage() {
         <Stats />
         <Services />
         <Packs />
+        <Problems />
         <Automation />
         <Contact />
       </main>
