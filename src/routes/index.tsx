@@ -81,6 +81,29 @@ const packs = [
   },
 ];
 
+const problems = [
+  {
+    num: "01",
+    title: "Profil incomplet",
+    desc: "Pas de numéro, pas d'adresse, pas de description claire, pas de photo sérieuse. Le client doute directement.",
+  },
+  {
+    num: "02",
+    title: "Publications irrégulières",
+    desc: "Aujourd'hui tu publies… puis plus rien pendant plusieurs semaines. Le client pense que le business est arrêté ou pas fiable.",
+  },
+  {
+    num: "03",
+    title: "Peu de témoignages",
+    desc: "Le client veut voir des preuves avant de faire confiance. Aucun avis, aucun retour, aucun témoignage — il hésite et part.",
+  },
+  {
+    num: "04",
+    title: "Messages sans réponse",
+    desc: "Un client écrit « Bonjour, c'est combien ? ». Il attend… et finit par acheter ailleurs. Chaque message perdu = un client perdu.",
+  },
+];
+
 const stats = [
   { value: "15+", label: "PME accompagnées" },
   { value: "24 / 7", label: "Automatisation active" },
