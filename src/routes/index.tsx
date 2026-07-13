@@ -478,6 +478,15 @@ function Contact() {
                   <span className="text-lg">📸</span>
                   @global_webmarketing_services
                 </a>
+                <a
+                  href="https://www.facebook.com/share/1ENuhoaej9/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
+                >
+                  <span className="text-lg">📘</span>
+                  Global Webmarketing Services
+                </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <span className="text-lg">📍</span>
                   Douala, Cameroun
