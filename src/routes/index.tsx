@@ -395,6 +395,59 @@ function Packs() {
   );
 }
 
+function Problems() {
+  return (
+    <section id="problemes" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-2xl text-center">
+        <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
+          Diagnostic
+        </div>
+        <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl">
+          Pourquoi votre page{" "}
+          <span className="text-gradient">manque de crédibilité</span> ?
+        </h2>
+        <p className="mt-4 text-muted-foreground">
+          Vous avez peut-être un bon business… mais votre page ne rassure pas.
+          Voici les 4 erreurs les plus fréquentes que nous corrigeons chez nos clients.
+        </p>
+      </div>
+      <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        {problems.map((p) => (
+          <article
+            key={p.num}
+            className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:border-primary/50"
+          >
+            <div
+              className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity group-hover:opacity-30"
+              aria-hidden
+            />
+            <div className="flex items-start gap-5">
+              <div className="font-display text-4xl font-black text-gradient leading-none">
+                {p.num}
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-bold">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="mt-12 flex justify-center">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-magenta transition-transform hover:scale-[1.03]"
+        >
+          Qu'attendez-vous pour nous laisser gérer votre page ?
+          <span aria-hidden>→</span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function Automation() {
   const items = [
     {
