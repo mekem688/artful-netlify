@@ -84,14 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME.",
       },
       { name: "author", content: "GMS-DC" },
-      { property: "og:title", content: "GMS-DC — Votre partenaire pour le succès en ligne" },
+      { property: "og:title", content: "GMS-DC — Marketing digital & automatisation au Cameroun" },
       {
         property: "og:description",
         content:
-          "Community management, publicité en ligne, identité visuelle et automatisation. Packs Starter, Standard et Premium adaptés aux PME camerounaises.",
+          "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "GMS-DC — Marketing digital & automatisation au Cameroun" },
+      { name: "twitter:description", content: "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c88ae836-c3d6-4ba0-b59a-5c04068859b6/id-preview-6afd1e7f--315c1a2f-9b9a-4a27-9e5f-1cea3f5bac3f.lovable.app-1783943345074.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c88ae836-c3d6-4ba0-b59a-5c04068859b6/id-preview-6afd1e7f--315c1a2f-9b9a-4a27-9e5f-1cea3f5bac3f.lovable.app-1783943345074.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
