@@ -152,6 +152,7 @@ function LandingPage() {
         <Services />
         <Packs />
         <Problems />
+        <Catalogue />
         <Automation />
         <Contact />
       </main>
