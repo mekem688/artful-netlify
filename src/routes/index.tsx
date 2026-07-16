@@ -483,6 +483,61 @@ function Problems() {
   );
 }
 
+function Catalogue() {
+  return (
+    <section id="catalogue" className="relative border-t border-border/60 bg-background py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto mb-14 max-w-2xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Catalogue
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Quelques réalisations pour nos clients
+          </h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            Identité visuelle, cartes de visite, affiches, publications réseaux sociaux — chaque projet est
+            pensé pour renforcer la crédibilité de votre marque.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {catalogue.map((item) => (
+            <article
+              key={item.title}
+              className="group overflow-hidden rounded-2xl border border-border/60 bg-card/40 backdrop-blur transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-glow-cyan"
+            >
+              <div className="relative aspect-square overflow-hidden bg-muted">
+                <img
+                  src={item.src}
+                  alt={`Réalisation ${item.title} — ${item.category}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {item.category}
+                </p>
+                <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="mt-14 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary hover:bg-primary/10"
+          >
+            Vous voulez le même niveau de rendu pour votre marque ?
+            <span aria-hidden>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Automation() {
   const items = [
     {
