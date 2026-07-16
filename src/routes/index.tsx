@@ -195,6 +195,9 @@ function Header() {
           <a href="#packs" className="transition-colors hover:text-foreground">
             Packs PME
           </a>
+          <a href="#catalogue" className="transition-colors hover:text-foreground">
+            Catalogue
+          </a>
           <a href="#automatisation" className="transition-colors hover:text-foreground">
             Automatisation
           </a>
