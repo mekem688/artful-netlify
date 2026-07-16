@@ -1,6 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-network.jpg";
 import logoImg from "@/assets/gms-logo.png";
+import cat1 from "@/assets/IMG_4437.jpeg.asset.json";
+import cat2 from "@/assets/IMG_4436.jpeg.asset.json";
+import cat3 from "@/assets/IMG_4428.jpeg.asset.json";
+import cat4 from "@/assets/IMG_4435.jpeg.asset.json";
+
+const catalogue = [
+  {
+    src: cat1.url,
+    title: "Dare Design House",
+    category: "Carte de visite",
+    desc: "Identité visuelle et carte de visite recto-verso pour une entreprise de BTP et décoration.",
+  },
+  {
+    src: cat2.url,
+    title: "Ornel Beauty",
+    category: "Publication réseaux sociaux",
+    desc: "Visuel hebdomadaire pour institut de beauté — direction artistique douce et lumineuse.",
+  },
+  {
+    src: cat3.url,
+    title: "MCG Group & Co",
+    category: "Affiche digitale",
+    desc: "Communication e-commerce import/export Chine–Cameroun, mise en page dynamique.",
+  },
+  {
+    src: cat4.url,
+    title: "Luxklin SARL",
+    category: "Logo & branding",
+    desc: "Logo épuré pour société de nettoyage et d'entretien professionnel.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
