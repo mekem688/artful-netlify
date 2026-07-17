@@ -176,44 +176,76 @@ function Logo({ className = "h-9 w-9" }: { className?: string }) {
 }
 
 function Header() {
+  const [open, setOpen] = useState(false);
+  const links = [
+    { href: "#services", label: "Services" },
+    { href: "#packs", label: "Packs PME" },
+    { href: "#catalogue", label: "Catalogue" },
+    { href: "#automatisation", label: "Automatisation" },
+    { href: "#contact", label: "Contact" },
+  ];
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-3 min-w-0">
           <Logo />
-          <div className="leading-tight">
+          <div className="leading-tight min-w-0">
             <div className="font-display text-lg font-extrabold tracking-tight">
               GMS-<span className="text-gradient">DC</span>
             </div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground truncate">
               Global Web Marketing Service
             </div>
           </div>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#services" className="transition-colors hover:text-foreground">
-            Services
-          </a>
-          <a href="#packs" className="transition-colors hover:text-foreground">
-            Packs PME
-          </a>
-          <a href="#catalogue" className="transition-colors hover:text-foreground">
-            Catalogue
-          </a>
-          <a href="#automatisation" className="transition-colors hover:text-foreground">
-            Automatisation
-          </a>
-          <a href="#contact" className="transition-colors hover:text-foreground">
-            Contact
-          </a>
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="transition-colors hover:text-foreground">
+              {l.label}
+            </a>
+          ))}
         </nav>
-        <a
-          href="#contact"
-          className="inline-flex items-center rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-transform hover:scale-[1.03]"
-        >
-          Audit gratuit
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="#contact"
+            className="hidden sm:inline-flex items-center rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-transform hover:scale-[1.03]"
+          >
+            Audit gratuit
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex md:hidden h-10 w-10 items-center justify-center rounded-full border border-border/60 text-foreground hover:bg-secondary/60 transition-colors"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-3 text-base text-muted-foreground hover:bg-secondary/60 hover:text-foreground transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow-cyan"
+            >
+              Audit gratuit
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
