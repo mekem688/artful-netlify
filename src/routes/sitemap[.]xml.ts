@@ -2,17 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
 const BASE_URL = "https://artful-engine-hub.lovable.app";
+const LAST_MOD = "2026-07-17";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
         const entries = [
-          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/", changefreq: "weekly", priority: "1.0", lastmod: LAST_MOD },
         ];
         const urls = entries.map(
           (e) =>
-            `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <lastmod>${e.lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
         );
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         ].join("\n");
         return new Response(xml, {
           headers: {
-            "Content-Type": "application/xml",
+            "Content-Type": "application/xml; charset=utf-8",
             "Cache-Control": "public, max-age=3600",
           },
         });

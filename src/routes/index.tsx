@@ -436,6 +436,8 @@ function Stats() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
+      id="stats"
+      aria-label="Chiffres clés GMS-DC"
       className="border-y border-border bg-card/30"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-10 md:grid-cols-4 md:px-8">
@@ -456,12 +458,12 @@ function Stats() {
 
 function Services() {
   return (
-    <section id="services" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+    <section id="services" aria-labelledby="services-heading" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
       <div className="max-w-2xl" data-reveal>
         <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
           Nos expertises
         </div>
-        <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl">
+        <h2 id="services-heading" className="font-display text-4xl font-black tracking-tight md:text-5xl">
           Une <span className="text-gradient">agence complète</span> pour votre
           marque.
         </h2>
@@ -499,14 +501,14 @@ function Services() {
 
 function Packs() {
   return (
-    <section id="packs" className="relative">
+    <section id="packs" aria-labelledby="packs-heading" className="relative">
       <div className="absolute inset-0 bg-gradient-hero opacity-60" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
         <div className="mx-auto max-w-2xl text-center" data-reveal>
           <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
             Formules d'abonnement
           </div>
-          <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl">
+          <h2 id="packs-heading" className="font-display text-4xl font-black tracking-tight md:text-5xl">
             Des packs <span className="text-gradient">pensés pour les PME</span>{" "}
             camerounaises.
           </h2>
@@ -584,12 +586,12 @@ function Packs() {
 
 function Problems() {
   return (
-    <section id="problemes" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+    <section id="problemes" aria-labelledby="problemes-heading" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-2xl text-center" data-reveal>
         <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
           Diagnostic
         </div>
-        <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl">
+        <h2 id="problemes-heading" className="font-display text-4xl font-black tracking-tight md:text-5xl">
           Pourquoi votre page{" "}
           <span className="text-gradient">manque de crédibilité</span> ?
         </h2>
@@ -639,14 +641,14 @@ function Problems() {
 
 function Catalogue() {
   return (
-    <section id="catalogue" className="relative border-t border-border/60 bg-background py-24">
+    <section id="catalogue" aria-labelledby="catalogue-heading" className="relative border-t border-border/60 bg-background py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center" data-reveal>
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
             Catalogue
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 id="catalogue-heading" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Quelques réalisations pour nos clients
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
@@ -714,13 +716,13 @@ function Automation() {
     },
   ];
   return (
-    <section id="automatisation" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+    <section id="automatisation" aria-labelledby="automation-heading" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
       <div className="grid gap-16 md:grid-cols-2 md:items-center">
         <div data-reveal="left">
           <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
             Automatisation
           </div>
-          <h2 className="font-display text-4xl font-black leading-tight tracking-tight md:text-5xl">
+          <h2 id="automation-heading" className="font-display text-4xl font-black leading-tight tracking-tight md:text-5xl">
             Gagnez du temps.
             <br />
             <span className="text-gradient">Automatisez</span> ce qui peut l'être.
@@ -764,7 +766,7 @@ function Automation() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative">
+    <section id="contact" aria-labelledby="contact-heading" className="relative">
       <div className="mx-auto max-w-5xl px-5 pb-24 md:px-8 md:pb-32">
         <div
           data-reveal
@@ -776,7 +778,7 @@ function Contact() {
           />
           <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
             <div>
-              <h2 className="font-display text-3xl font-black tracking-tight md:text-4xl">
+              <h2 id="contact-heading" className="font-display text-3xl font-black tracking-tight md:text-4xl">
                 Prêt à propulser <span className="text-gradient">votre marque</span> ?
               </h2>
               <p className="mt-4 text-muted-foreground">
