@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import heroImg from "@/assets/hero-network.jpg";
 import logoImg from "@/assets/gms-logo.png";
 import cat1 from "@/assets/IMG_4437.jpeg.asset.json";
