@@ -77,28 +77,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GMS-DC — Marketing digital & automatisation au Cameroun" },
+      { title: "GMS-DC — Agence marketing digital & community management au Cameroun" },
       {
         name: "description",
         content:
-          "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME.",
+          "GMS-DC (Global Web Marketing Service) — agence digitale à Douala, Cameroun. Community management, publicité Meta & TikTok Ads, identité visuelle, automatisation WhatsApp et sites web pour PME.",
       },
+      { name: "keywords", content: "GMS, GMS-DC, GMS Douala, GMS Cameroun, Global Web Marketing Service, agence marketing digital Cameroun, community management Douala, publicité Meta Cameroun, TikTok Ads Cameroun, création site web Douala, automatisation WhatsApp Cameroun" },
       { name: "author", content: "GMS-DC" },
-      { property: "og:title", content: "GMS-DC — Marketing digital & automatisation au Cameroun" },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+      { property: "og:site_name", content: "GMS-DC" },
+      { property: "og:locale", content: "fr_FR" },
+      { property: "og:title", content: "GMS-DC — Agence marketing digital & community management au Cameroun" },
       {
         property: "og:description",
         content:
-          "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME.",
+          "GMS-DC (Global Web Marketing Service) — agence digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle, automatisation et sites web pour PME.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://artful-engine-hub.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "GMS-DC — Marketing digital & automatisation au Cameroun" },
-      { name: "twitter:description", content: "GMS-DC (Global Web Marketing Service) : agence de communication digitale à Douala. Community management, publicité Meta & TikTok, identité visuelle et automatisation pour PME." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c88ae836-c3d6-4ba0-b59a-5c04068859b6/id-preview-6afd1e7f--315c1a2f-9b9a-4a27-9e5f-1cea3f5bac3f.lovable.app-1783943345074.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c88ae836-c3d6-4ba0-b59a-5c04068859b6/id-preview-6afd1e7f--315c1a2f-9b9a-4a27-9e5f-1cea3f5bac3f.lovable.app-1783943345074.png" },
+      { name: "twitter:title", content: "GMS-DC — Agence marketing digital au Cameroun" },
+      { name: "twitter:description", content: "GMS-DC (Global Web Marketing Service) — agence digitale à Douala : community management, publicité Meta & TikTok, identité visuelle, automatisation." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://artful-engine-hub.lovable.app/" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
@@ -109,6 +114,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "GMS-DC",
+          alternateName: ["GMS", "Global Web Marketing Service", "GMS Douala", "GMS Cameroun"],
+          description:
+            "Agence de marketing digital et community management à Douala, Cameroun. Publicité Meta & TikTok, identité visuelle, automatisation WhatsApp et sites web pour PME.",
+          url: "https://artful-engine-hub.lovable.app/",
+          image: "https://artful-engine-hub.lovable.app/favicon.ico",
+          areaServed: { "@type": "Country", name: "Cameroun" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Douala",
+            addressCountry: "CM",
+          },
+          sameAs: ["https://www.facebook.com/share/1ENuhoaej9/"],
+        }),
       },
     ],
   }),
