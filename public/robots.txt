@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artful-engine-hub.lovable.app/sitemap.xml
