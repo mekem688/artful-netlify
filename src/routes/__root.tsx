@@ -85,6 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "keywords", content: "GMS, GMS-DC, GMS Douala, GMS Cameroun, Global Web Marketing Service, agence marketing digital Cameroun, community management Douala, publicité Meta Cameroun, TikTok Ads Cameroun, création site web Douala, automatisation WhatsApp Cameroun" },
       { name: "author", content: "GMS-DC" },
+      { name: "google-site-verification", content: "Vofc1QxiwroqwmfkBImW5EDSVtu9M8zNzqG_Kzs06YI" },
       { name: "robots", content: "index, follow" },
       { name: "googlebot", content: "index, follow" },
       { property: "og:site_name", content: "GMS-DC" },
