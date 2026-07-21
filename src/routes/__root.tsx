@@ -269,11 +269,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
 
       // ── Primary meta ──────────────────────────────────────────────────────
-      { title: "GMS-DC — Agence Marketing Digital & Community Management au Cameroun" },
+      { title: "GMS-DC — Marketing Digital & Community Management Cameroun" },
       {
         name: "description",
         content:
-          "GMS-DC (Global Web Marketing Service) — agence digitale à Douala, Cameroun. Community management, publicité Meta & TikTok Ads, identité visuelle, automatisation WhatsApp et création de sites web pour PME camerounaises.",
+          "GMS-DC, agence digitale à Douala : community management, Meta & TikTok Ads, identité visuelle, automatisation WhatsApp et sites web pour PME.",
       },
       {
         name: "keywords",
