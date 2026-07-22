@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ZoomIn, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-network.jpg";
 import logoImg from "@/assets/gms-logo.png";
 import cat1 from "@/assets/IMG_4437.jpeg.asset.json";
@@ -32,6 +32,71 @@ const catalogue = [
     title: "Luxklin SARL",
     category: "Logo & branding",
     desc: "Logo épuré pour société de nettoyage et d'entretien professionnel.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Rodrigue M.",
+    role: "Gérant, Dare Design House",
+    text: "Avant GMS-DC, notre page Facebook était vide. En 2 mois, on a eu nos 3 premiers contrats via les réseaux. Le rapport qualité-prix est imbattable pour Douala.",
+    initials: "RM",
+    rating: 5,
+  },
+  {
+    name: "Christelle A.",
+    role: "Fondatrice, Ornel Beauty",
+    text: "Les visuels qu'ils créent sont à un niveau vraiment professionnel. Mes clientes me demandent toujours qui fait ma communication. Je recommande sans hésiter.",
+    initials: "CA",
+    rating: 5,
+  },
+  {
+    name: "Patrick N.",
+    role: "DG, MCG Group & Co",
+    text: "On fait de l'import-export Chine-Cameroun. GMS-DC a su trouver exactement le bon ton pour notre communication. Les campagnes Meta Ads ont doublé nos demandes.",
+    initials: "PN",
+    rating: 5,
+  },
+  {
+    name: "Marie-Claire T.",
+    role: "Directrice, Luxklin SARL",
+    text: "Logo, charte graphique, publications… tout est cohérent maintenant. Les clients nous reconnaissent directement. L'équipe est réactive et à l'écoute.",
+    initials: "MC",
+    rating: 5,
+  },
+  {
+    name: "Armand B.",
+    role: "Entrepreneur, Douala",
+    text: "Le chatbot WhatsApp qu'ils ont mis en place répond à mes clients la nuit quand je dors. J'ai gagné 3 nouveaux clients en une semaine grâce à ça.",
+    initials: "AB",
+    rating: 5,
+  },
+];
+
+const faqItems = [
+  {
+    q: "Quel est le délai pour voir les premiers résultats ?",
+    a: "Les premières améliorations visibles (identité, publications régulières, engagements) arrivent dans les 2 premières semaines. Pour les résultats publicitaires mesurables, comptez 4 à 6 semaines selon votre secteur et votre budget.",
+  },
+  {
+    q: "Puis-je payer en Mobile Money ?",
+    a: "Oui, nous acceptons MTN Mobile Money, Orange Money, les virements bancaires et les espèces. Engagement minimum de 3 mois. Le budget publicitaire (Meta Ads, TikTok Ads) est distinct des honoraires GMS-DC.",
+  },
+  {
+    q: "Y a-t-il un contrat d'engagement long terme ?",
+    a: "L'engagement minimum est de 3 mois pour permettre à la stratégie de porter ses fruits. Après cette période, vous êtes libre de continuer, d'ajuster votre pack ou d'arrêter avec un préavis d'un mois.",
+  },
+  {
+    q: "Est-ce que vous gérez des entreprises en dehors de Douala ?",
+    a: "Absolument. Nous accompagnons des PME à Yaoundé, Bafoussam, Buea et dans d'autres villes du Cameroun. Tout se gère à distance via WhatsApp et les réunions Zoom/Meet.",
+  },
+  {
+    q: "Que comprend l'audit digital gratuit ?",
+    a: "L'audit couvre l'analyse de votre présence sur les réseaux sociaux, votre site web (si vous en avez un), la cohérence de votre identité visuelle et un benchmark de vos concurrents directs. Il est livré sous 48 h, sans engagement.",
+  },
+  {
+    q: "Puis-je voir des exemples de votre travail avant de signer ?",
+    a: "Bien sûr. Notre section Catalogue présente quelques réalisations récentes. En plus, lors de l'audit gratuit, nous partageons des exemples spécifiques à votre secteur d'activité.",
   },
 ];
 
@@ -238,10 +303,14 @@ function LandingPage() {
         <Packs />
         <Problems />
         <Catalogue />
+        <Testimonials />
         <Automation />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      {/* Floating WhatsApp widget — always visible */}
+      <WhatsAppWidget />
     </div>
   );
 }
@@ -264,6 +333,7 @@ function Header() {
     { href: "#services", label: "Services" },
     { href: "#packs", label: "Packs PME" },
     { href: "#catalogue", label: "Catalogue" },
+    { href: "#temoignages", label: "Avis clients" },
     { href: "#automatisation", label: "Automatisation" },
     { href: "#contact", label: "Contact" },
   ];
@@ -327,7 +397,7 @@ function Header() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow-cyan"
+              className="mt-2 rounded-full bg-gradient-brand px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
             >
               Audit gratuit
             </a>
@@ -340,65 +410,62 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section
+      id="top"
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-hero" aria-hidden />
-      <div
-        className="absolute inset-0 opacity-40 mix-blend-screen"
-        style={{
-          backgroundImage: `url(${heroImg})`,
-          backgroundPosition: "center right",
-          backgroundSize: "cover",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 45%, black 100%)",
-        }}
-        aria-hidden
-      />
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-12 md:px-8 md:py-32">
-        <div className="md:col-span-7">
-          <div className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-gradient-brand" />
-            Agence digitale · Douala, Cameroun
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:items-center md:px-8 md:py-28 lg:py-36">
+        <div className="relative z-10">
+          <div className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur">
+            <span
+              className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"
+              aria-hidden
+            />
+            Agence de marketing digital · Douala
           </div>
-          <h1 className="hero-title font-display text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-            Votre partenaire
-            <br />
-            pour le succès{" "}
-            <span className="text-gradient">en ligne.</span>
+          <h1
+            id="hero-heading"
+            className="hero-title font-display text-4xl font-black leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+          >
+            Votre marque mérite{" "}
+            <span className="text-gradient">d'être vue.</span>
           </h1>
-          <p className="hero-desc mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Nous propulsons les PME camerounaises avec une identité visuelle
-            forte, une présence digitale professionnelle et l'automatisation
-            de leur communication.
+          <p className="hero-subtitle mt-6 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
+            Community management, publicité Meta & TikTok, identité visuelle et
+            automatisation — nous gérons votre présence digitale pour que vous
+            puissiez vous concentrer sur votre cœur de métier.
           </p>
-          <div className="hero-cta mt-10 flex flex-wrap gap-4">
+          <div className="hero-cta mt-8 flex flex-wrap gap-3">
             <a
-              href="#packs"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-magenta transition-all hover:scale-[1.03] hover:shadow-glow-cyan"
             >
-              Découvrir nos packs
+              Audit gratuit sous 48 h
               <span aria-hidden>→</span>
             </a>
             <a
               href="#services"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all hover:bg-card hover:border-primary/50"
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all hover:border-primary/40 hover:bg-card hover:scale-[1.02]"
             >
               Voir nos services
             </a>
           </div>
         </div>
-        <div className="hero-visual relative md:col-span-5">
-          <div className="animate-float relative mx-auto aspect-square w-full max-w-md">
-            <div className="absolute inset-6 rounded-3xl bg-gradient-brand-soft blur-2xl" />
-            <div className="relative flex h-full items-center justify-center rounded-3xl border border-border bg-card/40 p-10 backdrop-blur-xl shadow-card">
-              <img
-                src={logoImg}
-                alt="Logo GMS-DC"
-                width={512}
-                height={512}
-                className="h-full w-full object-contain drop-shadow-[0_0_40px_rgba(255,0,255,0.35)]"
-              />
-            </div>
-          </div>
+        <div className="hero-visual relative flex items-center justify-center">
+          <div
+            className="absolute -inset-8 rounded-full bg-gradient-brand opacity-20 blur-3xl animate-float"
+            aria-hidden
+          />
+          <img
+            src={heroImg}
+            alt="Réseau digital GMS-DC"
+            width={600}
+            height={480}
+            className="relative z-10 w-full max-w-lg rounded-3xl object-cover shadow-[0_40px_100px_-20px_oklch(0_0_0/0.7)]"
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>
@@ -458,10 +525,14 @@ function Stats() {
 
 function Services() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-      <div className="max-w-2xl" data-reveal>
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32"
+    >
+      <div className="mx-auto max-w-2xl text-center" data-reveal>
         <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
-          Nos expertises
+          Ce que nous faisons
         </div>
         <h2 id="services-heading" className="font-display text-4xl font-black tracking-tight md:text-5xl">
           Une <span className="text-gradient">agence complète</span> pour votre
@@ -547,34 +618,35 @@ function Packs() {
                   </span>
                 )}
               </div>
-              <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">
                 {p.tag}
-              </p>
-              <div className="mt-6 flex items-baseline gap-2">
-                <span className="font-display text-4xl font-black">{p.price}</span>
-                <span className="text-sm text-muted-foreground">FCFA / mois</span>
               </div>
-              <ul className="mt-8 space-y-3 text-sm">
+              <div className="mt-6">
+                <span className="font-display text-3xl font-black">
+                  {p.price}
+                </span>
+                <span className="text-sm text-muted-foreground"> FCFA / mois</span>
+              </div>
+              <ul className="mt-6 space-y-3">
                 {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <span
-                      className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gradient-brand"
-                      aria-hidden
-                    />
-                    <span>{f}</span>
+                  <li key={f} className="flex items-start gap-2.5 text-sm">
+                    <span className="mt-0.5 flex-none text-primary" aria-hidden>
+                      ✓
+                    </span>
+                    {f}
                   </li>
                 ))}
               </ul>
               <a
                 href="#contact"
                 className={
-                  "mt-10 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all hover:scale-[1.02] " +
+                  "mt-8 flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold transition-all hover:scale-[1.02] " +
                   (p.accent
                     ? "bg-gradient-brand text-primary-foreground shadow-glow-cyan hover:shadow-glow-magenta"
-                    : "border border-border bg-secondary text-foreground hover:bg-secondary/80 hover:border-primary/40")
+                    : "border border-border bg-card hover:border-primary/40 hover:bg-secondary/60")
                 }
               >
-                Choisir {p.name}
+                Choisir ce pack
               </a>
             </article>
           ))}
@@ -639,7 +711,76 @@ function Problems() {
   );
 }
 
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+
+function Lightbox({
+  src,
+  alt,
+  title,
+  category,
+  onClose,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  category: string;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 backdrop-blur-xl p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Réalisation — ${title}`}
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-3xl w-full rounded-2xl overflow-hidden border border-border shadow-[0_40px_100px_-20px_oklch(0_0_0/0.8)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Fermer"
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur transition-colors hover:bg-secondary"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full object-contain max-h-[80vh]"
+        />
+        <div className="bg-card px-6 py-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            {category}
+          </p>
+          <p className="mt-1 font-display text-lg font-bold">{title}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Catalogue() {
+  const [lightbox, setLightbox] = useState<(typeof catalogue)[0] | null>(null);
+  const openLightbox = useCallback((item: (typeof catalogue)[0]) => {
+    setLightbox(item);
+  }, []);
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+
   return (
     <section id="catalogue" aria-labelledby="catalogue-heading" className="relative border-t border-border/60 bg-background py-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -664,14 +805,25 @@ function Catalogue() {
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
               className="group overflow-hidden rounded-2xl border border-border/60 bg-card/40 backdrop-blur transition-all hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-glow-cyan"
             >
-              <div className="relative aspect-square overflow-hidden bg-muted">
+              <button
+                type="button"
+                className="relative aspect-square w-full overflow-hidden bg-muted block text-left"
+                onClick={() => openLightbox(item)}
+                aria-label={`Agrandir la réalisation ${item.title}`}
+              >
                 <img
                   src={item.src}
                   alt={`Réalisation ${item.title} — ${item.category}`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
+                {/* Zoom overlay */}
+                <div className="absolute inset-0 flex items-center justify-center bg-background/0 transition-colors duration-300 group-hover:bg-background/40">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-card/0 opacity-0 transition-all duration-300 group-hover:bg-card/90 group-hover:opacity-100 group-hover:scale-100 scale-75">
+                    <ZoomIn className="h-5 w-5 text-primary" />
+                  </div>
+                </div>
+              </button>
               <div className="p-6">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
                   {item.category}
@@ -692,7 +844,124 @@ function Catalogue() {
           </a>
         </div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={`Réalisation ${lightbox.title} — ${lightbox.category}`}
+          title={lightbox.title}
+          category={lightbox.category}
+          onClose={closeLightbox}
+        />
+      )}
     </section>
+  );
+}
+
+// ── Testimonials ──────────────────────────────────────────────────────────────
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-0.5" aria-label={`${rating} étoiles sur 5`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          className={i < rating ? "text-primary" : "text-muted"}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          width={14}
+          height={14}
+          aria-hidden
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section
+      id="temoignages"
+      aria-labelledby="temoignages-heading"
+      className="relative border-t border-border/60 bg-background py-24 md:py-32"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto mb-14 max-w-2xl text-center" data-reveal>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Témoignages
+          </p>
+          <h2
+            id="temoignages-heading"
+            className="font-display text-4xl font-black tracking-tight md:text-5xl"
+          >
+            Ce que disent{" "}
+            <span className="text-gradient">nos clients</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Des PME doualaïses et camerounaises qui ont fait confiance à GMS-DC pour leur présence digitale.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.slice(0, 3).map((t, i) => (
+            <TestimonialCard key={t.name} testimonial={t} delay={i * 90} />
+          ))}
+        </div>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 md:mx-auto md:max-w-3xl">
+          {testimonials.slice(3).map((t, i) => (
+            <TestimonialCard key={t.name} testimonial={t} delay={(i + 3) * 90} />
+          ))}
+        </div>
+
+        <div className="mt-12 text-center" data-reveal>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-[1.03] hover:shadow-glow-magenta"
+          >
+            Rejoindre nos clients satisfaits
+            <span aria-hidden>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TestimonialCard({
+  testimonial,
+  delay,
+}: {
+  testimonial: (typeof testimonials)[0];
+  delay: number;
+}) {
+  return (
+    <article
+      data-reveal
+      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 shadow-card transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow-cyan"
+    >
+      <div
+        className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20"
+        aria-hidden
+      />
+      <StarRating rating={testimonial.rating} />
+      <blockquote className="mt-4 text-sm leading-relaxed text-foreground/90">
+        "{testimonial.text}"
+      </blockquote>
+      <div className="mt-5 flex items-center gap-3">
+        <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-gradient-brand text-sm font-bold text-primary-foreground">
+          {testimonial.initials}
+        </div>
+        <div>
+          <div className="text-sm font-semibold">{testimonial.name}</div>
+          <div className="text-xs text-muted-foreground">{testimonial.role}</div>
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -764,6 +1033,81 @@ function Automation() {
   );
 }
 
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border last:border-0">
+      <button
+        type="button"
+        className="flex w-full items-center justify-between gap-4 py-5 text-left text-sm font-semibold text-foreground transition-colors hover:text-primary"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+      >
+        <span>{q}</span>
+        <ChevronDown
+          className={`h-5 w-5 flex-none text-muted-foreground transition-transform duration-300 ${open ? "rotate-180 text-primary" : ""}`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 pb-5" : "max-h-0"}`}
+        aria-hidden={!open}
+      >
+        <p className="text-sm leading-relaxed text-muted-foreground">{a}</p>
+      </div>
+    </div>
+  );
+}
+
+function FAQ() {
+  return (
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="relative border-t border-border/60 bg-background py-24 md:py-32"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="mx-auto max-w-3xl px-5 md:px-8">
+        <div className="mb-12 text-center" data-reveal>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            FAQ
+          </p>
+          <h2
+            id="faq-heading"
+            className="font-display text-4xl font-black tracking-tight md:text-5xl"
+          >
+            Questions{" "}
+            <span className="text-gradient">fréquentes</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Tout ce que vous voulez savoir avant de nous contacter.
+          </p>
+        </div>
+        <div
+          data-reveal
+          className="rounded-2xl border border-border bg-card px-7 shadow-card"
+        >
+          {faqItems.map(({ q, a }) => (
+            <FAQItem key={q} q={q} a={a} />
+          ))}
+        </div>
+        <div className="mt-10 text-center text-sm text-muted-foreground" data-reveal>
+          Une question non listée ?{" "}
+          <a
+            href="https://wa.me/237659252877?text=Bonjour%20GMS-DC%2C%20j%27ai%20une%20question%20%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-primary hover:underline"
+          >
+            Écrivez-nous sur WhatsApp →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="relative">
@@ -829,11 +1173,13 @@ function Contact() {
                 e.preventDefault();
                 const data = new FormData(e.currentTarget);
                 const msg = `Bonjour GMS-DC, je m'appelle ${data.get("name")} (${data.get("email")}). ${data.get("message")}`;
-                window.location.href = `https://wa.me/237659252877?text=${encodeURIComponent(msg)}`;
+                const url = `https://wa.me/237659252877?text=${encodeURIComponent(msg)}`;
+                window.open(url, "_blank", "noopener,noreferrer");
               }}
             >
               <input
                 required
+                type="text"
                 name="name"
                 placeholder="Votre nom"
                 className="w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/30"
@@ -867,6 +1213,65 @@ function Contact() {
   );
 }
 
+// ── WhatsApp floating widget ──────────────────────────────────────────────────
+
+function WhatsAppWidget() {
+  const [visible, setVisible] = useState(false);
+  const [tooltip, setTooltip] = useState(true);
+
+  useEffect(() => {
+    // Show widget after 2 seconds
+    const t = setTimeout(() => setVisible(true), 2000);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    // Hide tooltip after 6 seconds
+    if (!visible) return;
+    const t = setTimeout(() => setTooltip(false), 6000);
+    return () => clearTimeout(t);
+  }, [visible]);
+
+  if (!visible) return null;
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      {tooltip && (
+        <div className="animate-fade-in flex items-center gap-2 rounded-2xl border border-border bg-card px-4 py-2.5 shadow-card text-sm font-medium">
+          💬 Discutons sur WhatsApp !
+          <button
+            type="button"
+            aria-label="Fermer"
+            onClick={() => setTooltip(false)}
+            className="ml-1 text-muted-foreground hover:text-foreground"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      )}
+      <a
+        href="https://wa.me/237659252877?text=Bonjour%20GMS-DC%2C%20je%20voudrais%20en%20savoir%20plus%20sur%20vos%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contacter GMS-DC sur WhatsApp"
+        className="flex h-14 w-14 items-center justify-center rounded-full shadow-[0_8px_32px_-8px_rgba(37,211,102,0.7)] transition-all hover:scale-110 hover:shadow-[0_12px_40px_-8px_rgba(37,211,102,0.85)]"
+        style={{ background: "#25D366" }}
+      >
+        {/* WhatsApp SVG icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="white"
+          className="h-7 w-7"
+          aria-hidden
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </a>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-border">
@@ -881,6 +1286,14 @@ function Footer() {
             </div>
           </div>
         </div>
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          <a href="#services" className="hover:text-foreground transition-colors">Services</a>
+          <a href="#packs" className="hover:text-foreground transition-colors">Packs PME</a>
+          <a href="#catalogue" className="hover:text-foreground transition-colors">Catalogue</a>
+          <a href="#temoignages" className="hover:text-foreground transition-colors">Avis clients</a>
+          <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+          <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+        </nav>
         <div className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} GMS-DC · Global Web Marketing Service · Douala, Cameroun
         </div>
