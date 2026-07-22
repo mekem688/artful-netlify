@@ -391,7 +391,8 @@ const T = {
       headingHighlight: "votre marque",
       heading2: "?",
       sub: "Audit digital gratuit sous 48 h. Sans engagement.",
-      location: "Douala, Cameroun",
+      location: "Beedi, Immeuble J et T, face Total Énergie — Douala",
+      mapLabel: "Nous trouver",
       name: "Votre nom",
       email: "Votre e-mail",
       message: "Parlez-nous de votre projet…",
@@ -773,7 +774,8 @@ const T = {
       headingHighlight: "your brand",
       heading2: "?",
       sub: "Free digital audit in 48h. No commitment.",
-      location: "Douala, Cameroon",
+      location: "Beedi, J & T Building, opposite Total Énergie — Douala",
+      mapLabel: "Find us",
       name: "Your name",
       email: "Your email",
       message: "Tell us about your project…",
@@ -2051,7 +2053,8 @@ function Contact() {
           className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-card md:p-16"
         >
           <div className="absolute inset-0 bg-gradient-brand opacity-[0.08]" aria-hidden />
-          <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
+          <div className="relative grid gap-10 md:grid-cols-2 md:items-start">
+            {/* Left — info */}
             <div>
               <h2 id="contact-heading" className="font-display text-3xl font-black tracking-tight md:text-4xl">
                 {c.heading1} <span className="text-gradient">{c.headingHighlight}</span>
@@ -2081,12 +2084,42 @@ function Contact() {
                 >
                   <span className="text-lg">📘</span>Global Webmarketing Services
                 </a>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <span className="text-lg">📍</span>
-                  {c.location}
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <span className="text-lg leading-none mt-0.5">📍</span>
+                  <span>{c.location}</span>
                 </div>
               </div>
+
+              {/* ── Google Map ── */}
+              <div className="mt-8">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {c.mapLabel}
+                </p>
+                <div className="overflow-hidden rounded-2xl border border-border shadow-card">
+                  <iframe
+                    title="GMS-DC — Beedi, Douala"
+                    src="https://maps.google.com/maps?q=Beedi+Akwa+Douala+Cameroun&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="260"
+                    style={{ border: 0, display: "block" }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Localisation GMS-DC — Beedi, Immeuble J et T, face Total Énergie, Douala"
+                  />
+                </div>
+                <a
+                  href="https://maps.google.com/maps?q=Beedi+Akwa+Douala+Cameroun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+                >
+                  <span>↗</span> Ouvrir dans Google Maps
+                </a>
+              </div>
             </div>
+
+            {/* Right — form */}
             <form
               className="space-y-4"
               onSubmit={(e) => {
