@@ -25,7 +25,7 @@ const T = {
   fr: {
     nav: {
       services: "Services",
-      packs: "Packs PME",
+      packs: "Tarifs",
       catalogue: "Catalogue",
       avisClients: "Avis clients",
       automatisation: "Automatisation",
@@ -89,55 +89,170 @@ const T = {
       ],
     },
     packs: {
-      label: "Formules d'abonnement",
-      heading1: "Des packs",
-      headingHighlight: "pensés pour les PME",
-      heading2: "camerounaises.",
-      sub: "Paiement Mobile Money, virement ou espèces. Engagement minimum de 3 mois. Budget publicitaire distinct des honoraires.",
+      label: "Community Management",
+      heading1: "Grille tarifaire",
+      headingHighlight: " Community Management",
+      heading2: "",
+      sub: "Méthode PSSP : chaque palier repose sur une Promesse claire, un Service défini, une Stratégie cohérente et une Preuve mensuelle chiffrée.",
       perMonth: "FCFA / mois",
       cta: "Choisir ce pack",
-      popular: "Populaire",
+      popular: "Recommandé",
+      method: "Promesse · Service · Stratégie · Preuve",
+      tabs: { promise: "Promesse", strategy: "Stratégie", proof: "Preuve" },
+      networks: "Réseaux sociaux",
+      pubsPerMonth: "Publications / mois",
       items: [
         {
           name: "Starter",
-          price: "100 000",
-          tag: "Idéal pour démarrer",
+          price: "35 000",
+          tag: "Commerces et PME qui démarrent en ligne",
+          networks: ["Facebook", "TikTok"],
+          pubs: "12 visuels",
+          cadence: "3 publications / semaine",
           features: [
-            "1 réseau social géré",
-            "8 publications / mois",
-            "Visuels basiques",
-            "Reporting trimestriel",
-            "Support WhatsApp",
+            "Planning éditorial + rapport mensuel",
+            "Campagne pub pilotée par GMS (budget à la charge du client)",
           ],
+          promise: "Sortez de l'invisibilité du monde numérique en 30 jours.",
+          strategy: "Objectif : notoriété de base. On installe une présence professionnelle là où, aujourd'hui, il n'y a rien — pour être trouvable avant d'être vendable.",
+          proof: "KPI mensuel : portée totale et évolution du nombre d'abonnés.",
           accent: false,
         },
         {
-          name: "Standard",
-          price: "220 000",
-          tag: "Le plus populaire",
+          name: "Medium",
+          price: "60 000",
+          tag: "PME visibles qui veulent une audience active",
+          networks: ["Facebook", "TikTok"],
+          pubs: "16 (8 visuels + 8 vidéos)",
+          cadence: "4 publications / semaine dont 2 vidéos",
           features: [
-            "2 réseaux sociaux",
-            "16 publications / mois",
-            "Visuels personnalisés",
-            "1 campagne publicitaire / mois",
-            "Reporting mensuel",
+            "Planning éditorial + rapport mensuel",
+            "Campagne pub pilotée par GMS (budget à la charge du client)",
+            "Suivi & partage des performances",
           ],
-          accent: true,
+          promise: "Transformez vos abonnés en communauté active.",
+          strategy: "Objectif : engagement. La vidéo et la cadence renforcée transforment des abonnés passifs en une communauté qui commente, partage et retient la marque.",
+          proof: "KPI mensuel : taux d'engagement (likes, commentaires, partages) comparé au mois précédent.",
+          accent: false,
         },
         {
           name: "Premium",
-          price: "400 000",
-          tag: "Croissance rapide",
+          price: "100 000",
+          tag: "PME prêtes à convertir leur audience en prospects",
+          networks: ["Facebook", "TikTok", "Instagram"],
+          pubs: "28 (12 vidéos + 16 visuels)",
+          cadence: "7 publications / semaine (3 vidéos + 4 visuels)",
           features: [
-            "3 réseaux + WhatsApp Business",
-            "24 publications + Stories",
-            "Vidéos courtes incluses",
-            "2 campagnes publicitaires / mois",
-            "Reporting détaillé & stratégie",
+            "Planning éditorial + rapport mensuel",
+            "Campagne pub pilotée par GMS (budget à la charge du client)",
+            "Veille concurrentielle & interaction quotidienne avec la communauté",
+            "Suivi, partage & recommandations",
+            "Bonus : conseil marketing & assistance commerciale",
           ],
+          promise: "Convertissez l'attention en prospects réels.",
+          strategy: "Objectif : acquisition. La veille et l'interaction quotidienne transforment l'audience en contacts qualifiés — on ne publie plus seulement, on capte la demande.",
+          proof: "KPI mensuel : nombre de demandes / messages entrants générés.",
+          accent: false,
+        },
+        {
+          name: "VIP",
+          price: "150 000",
+          tag: "PME qui veulent traduire le digital en chiffre d'affaires",
+          networks: ["Facebook", "TikTok", "LinkedIn", "Instagram"],
+          pubs: "28 (12 visuels + 16 vidéos)",
+          cadence: "7 publications / semaine (3 visuels + 4 vidéos)",
+          features: [
+            "Planning éditorial + rapport mensuel",
+            "Campagne pub pilotée par GMS (budget à la charge du client)",
+            "Veille concurrentielle, étude de marché & interaction quotidienne",
+            "Élaboration de la stratégie commerciale",
+            "Bonus : assistance closing, assistance WhatsApp, suivi face-à-face",
+          ],
+          promise: "Passez de la communication à la vente.",
+          strategy: "Objectif : commercialisation. GMS ne se limite plus à la production de contenu — l'équipe participe activement au closing, avec un accompagnement humain et personnalisé.",
+          proof: "KPI mensuel : nombre de ventes ou rendez-vous commerciaux attribuables au dispositif digital.",
+          accent: true,
+        },
+        {
+          name: "Gold",
+          price: "250 000",
+          tag: "Dominer tous les canaux et devenir la référence du secteur",
+          networks: ["Facebook", "Instagram", "WhatsApp", "LinkedIn", "TikTok", "YouTube"],
+          pubs: "20 vidéos + 20 visuels + contenus additionnels + blog",
+          cadence: "5 vidéos/semaine + 5 visuels/semaine (formats courts inclus)",
+          features: [
+            "Production complète tous formats (vidéos courtes, visuels, blog & articles)",
+            "Planning éditorial + rapport mensuel",
+            "Campagne pub pilotée par GMS (budget à la charge du client)",
+            "Veille concurrentielle, étude de marché & interaction quotidienne",
+            "Assistance & Closing",
+            "Bonus : recyclage outils informatiques, WhatsApp, stratégie commerciale établie",
+          ],
+          promise: "Dominez tous les canaux. Devenez la référence incontestée de votre secteur.",
+          strategy: "Objectif : omniprésence. Chaque canal où le client potentiel peut se trouver est occupé, avec une seule stratégie cohérente qui les relie tous.",
+          proof: "KPI mensuel : part de voix face aux concurrents directs et volume de ventes générées.",
           accent: false,
         },
       ],
+      addons: {
+        label: "Services ponctuels",
+        heading: "Prestations à la carte",
+        sub: "Facturables indépendamment des packs mensuels.",
+        note: "Les tarifs « à partir de » varient selon la complexité et les délais. Un devis précis est établi après le brief.",
+        items: [
+          { service: "Création de logo", price: "30 000 FCFA" },
+          { service: "Charte graphique", price: "80 000 FCFA" },
+          { service: "Carte de visite", price: "10 000 FCFA" },
+          { service: "Flyer", price: "15 000 FCFA" },
+          { service: "Bannière Facebook", price: "20 000 FCFA" },
+          { service: "Montage vidéo", price: "À partir de 20 000 FCFA" },
+          { service: "Shooting photo", price: "À partir de 50 000 FCFA" },
+          { service: "Publicité Meta (hors budget)", price: "À partir de 50 000 FCFA" },
+          { service: "Création de site web", price: "À partir de 250 000 FCFA" },
+        ],
+      },
+      adCarte: {
+        label: "Campagne à la carte",
+        heading: "Gestion de campagne au quotidien",
+        sub: "Hors pack — base 2 000 FCFA / jour. Budget média séparé.",
+        note: "Frais de gestion uniquement. Le budget publicitaire investi sur Meta reste à la charge du client.",
+        items: [
+          { formula: "1 jour", price: "2 000 FCFA" },
+          { formula: "3 jours (formule courte)", price: "6 000 FCFA" },
+          { formula: "7 jours (hebdomadaire)", price: "14 000 FCFA" },
+          { formula: "30 jours (mensuel)", price: "60 000 FCFA" },
+        ],
+      },
+      conditions: {
+        heading: "Conditions générales",
+        items: [
+          {
+            icon: "💰",
+            title: "Budget publicitaire",
+            desc: "Le budget média reste à la charge du client. GMS applique des frais de gestion de 12 % du budget investi.",
+          },
+          {
+            icon: "📅",
+            title: "−10 % engagement trimestriel",
+            desc: "Réduction sur l'abonnement mensuel avec facturation trimestrielle anticipée.",
+          },
+          {
+            icon: "🗓️",
+            title: "−15 % engagement annuel",
+            desc: "Réduction sur l'abonnement mensuel avec facturation semestrielle anticipée.",
+          },
+          {
+            icon: "📊",
+            title: "Rapport mensuel inclus",
+            desc: "Chaque pack inclut un rapport mensuel présentant les indicateurs de Preuve définis pour son palier.",
+          },
+          {
+            icon: "🔄",
+            title: "Changement de palier",
+            desc: "Possible à tout moment, avec effet au mois suivant, sans frais de transition.",
+          },
+        ],
+      },
     },
     fbAds: {
       label: "Campagne publicitaire",
@@ -408,7 +523,7 @@ const T = {
   en: {
     nav: {
       services: "Services",
-      packs: "SME Plans",
+      packs: "Pricing",
       catalogue: "Portfolio",
       avisClients: "Reviews",
       automatisation: "Automation",
@@ -472,55 +587,170 @@ const T = {
       ],
     },
     packs: {
-      label: "Subscription plans",
-      heading1: "Plans",
-      headingHighlight: "designed for Cameroonian SMEs",
-      heading2: ".",
-      sub: "Pay by Mobile Money, bank transfer or cash. Minimum 3-month commitment. Ad budget is separate from agency fees.",
+      label: "Community Management",
+      heading1: "Community Management",
+      headingHighlight: " Pricing",
+      heading2: "",
+      sub: "The PSSP method: every tier is built on a clear Promise, a defined Service, a coherent Strategy, and a monthly measurable Proof.",
       perMonth: "FCFA / month",
       cta: "Choose this plan",
-      popular: "Popular",
+      popular: "Recommended",
+      method: "Promise · Service · Strategy · Proof",
+      tabs: { promise: "Promise", strategy: "Strategy", proof: "Proof" },
+      networks: "Social networks",
+      pubsPerMonth: "Posts / month",
       items: [
         {
           name: "Starter",
-          price: "100 000",
-          tag: "Perfect to get started",
+          price: "35 000",
+          tag: "Businesses and SMEs getting online for the first time",
+          networks: ["Facebook", "TikTok"],
+          pubs: "12 visuals",
+          cadence: "3 posts / week",
           features: [
-            "1 managed social network",
-            "8 posts / month",
-            "Basic visuals",
-            "Quarterly reporting",
-            "WhatsApp support",
+            "Editorial calendar + monthly report",
+            "Ad campaign managed by GMS (media budget on client)",
           ],
+          promise: "Get out of digital invisibility within 30 days.",
+          strategy: "Goal: basic awareness. We build a regular professional presence where, today, there is nothing — so you're findable before you're sellable.",
+          proof: "Monthly KPI: total reach and follower growth.",
           accent: false,
         },
         {
-          name: "Standard",
-          price: "220 000",
-          tag: "Most popular",
+          name: "Medium",
+          price: "60 000",
+          tag: "Visible SMEs that want an engaged, not just passive, audience",
+          networks: ["Facebook", "TikTok"],
+          pubs: "16 (8 visuals + 8 videos)",
+          cadence: "4 posts / week including 2 videos",
           features: [
-            "2 social networks",
-            "16 posts / month",
-            "Custom visuals",
-            "1 ad campaign / month",
-            "Monthly reporting",
+            "Editorial calendar + monthly report",
+            "Ad campaign managed by GMS (media budget on client)",
+            "Performance tracking & sharing",
           ],
-          accent: true,
+          promise: "Turn your followers into an active community.",
+          strategy: "Goal: engagement. Video and an increased cadence transform passive followers into a community that comments, shares, and remembers the brand.",
+          proof: "Monthly KPI: engagement rate (likes, comments, shares) vs. the previous month.",
+          accent: false,
         },
         {
           name: "Premium",
-          price: "400 000",
-          tag: "Fast growth",
+          price: "100 000",
+          tag: "SMEs ready to convert their audience into real leads",
+          networks: ["Facebook", "TikTok", "Instagram"],
+          pubs: "28 (12 videos + 16 visuals)",
+          cadence: "7 posts / week (3 videos + 4 visuals)",
           features: [
-            "3 networks + WhatsApp Business",
-            "24 posts + Stories",
-            "Short-form videos included",
-            "2 ad campaigns / month",
-            "Detailed reporting & strategy",
+            "Editorial calendar + monthly report",
+            "Ad campaign managed by GMS (media budget on client)",
+            "Competitive watch & daily community interaction",
+            "Tracking, sharing & recommendations",
+            "Bonus: marketing advice & sales assistance",
           ],
+          promise: "Convert attention into real prospects.",
+          strategy: "Goal: acquisition. Daily watch and interaction transform engaged audiences into qualified contacts — we don't just post, we capture demand.",
+          proof: "Monthly KPI: number of inbound messages / enquiries generated.",
+          accent: false,
+        },
+        {
+          name: "VIP",
+          price: "150 000",
+          tag: "SMEs that want digital to translate into actual revenue",
+          networks: ["Facebook", "TikTok", "LinkedIn", "Instagram"],
+          pubs: "28 (12 visuals + 16 videos)",
+          cadence: "7 posts / week (3 visuals + 4 videos)",
+          features: [
+            "Editorial calendar + monthly report",
+            "Ad campaign managed by GMS (media budget on client)",
+            "Competitive watch, market study & daily interaction",
+            "Commercial strategy development",
+            "Bonus: closing assistance, WhatsApp support, in-person follow-up",
+          ],
+          promise: "Go from communication to actual sales.",
+          strategy: "Goal: commercialisation. GMS is no longer just a content producer — the team actively participates in closing, with hands-on personal support.",
+          proof: "Monthly KPI: number of sales or commercial appointments attributable to the digital setup.",
+          accent: true,
+        },
+        {
+          name: "Gold",
+          price: "250 000",
+          tag: "Dominate every channel and become the undisputed reference of your sector",
+          networks: ["Facebook", "Instagram", "WhatsApp", "LinkedIn", "TikTok", "YouTube"],
+          pubs: "20 videos + 20 visuals + additional content + blog",
+          cadence: "5 videos/week + 5 visuals/week (short formats included)",
+          features: [
+            "Full production — all formats (short videos, visuals, blog & articles)",
+            "Editorial calendar + monthly report",
+            "Ad campaign managed by GMS (media budget on client)",
+            "Competitive watch, market study & daily interaction",
+            "Closing assistance",
+            "Bonus: IT recycling, WhatsApp support, commercial strategy",
+          ],
+          promise: "Dominate every channel. Become the undisputed reference of your sector.",
+          strategy: "Goal: omnipresence. Every channel where a potential client might be is covered, with a single coherent strategy connecting them all.",
+          proof: "Monthly KPI: share of voice vs. direct competitors and total sales volume generated.",
           accent: false,
         },
       ],
+      addons: {
+        label: "One-time services",
+        heading: "À la carte services",
+        sub: "Billable independently from monthly plans.",
+        note: "'Starting from' prices vary by complexity and deadlines. An exact quote is provided after the brief.",
+        items: [
+          { service: "Logo creation", price: "30,000 FCFA" },
+          { service: "Brand identity (charter)", price: "80,000 FCFA" },
+          { service: "Business card", price: "10,000 FCFA" },
+          { service: "Flyer", price: "15,000 FCFA" },
+          { service: "Facebook banner", price: "20,000 FCFA" },
+          { service: "Video editing", price: "From 20,000 FCFA" },
+          { service: "Photo shoot", price: "From 50,000 FCFA" },
+          { service: "Meta advertising (excl. budget)", price: "From 50,000 FCFA" },
+          { service: "Website creation", price: "From 250,000 FCFA" },
+        ],
+      },
+      adCarte: {
+        label: "Pay-per-day campaigns",
+        heading: "Daily campaign management",
+        sub: "Outside plans — base 2,000 FCFA / day. Media budget separate.",
+        note: "Management fees only. The ad budget invested on Meta remains the client's responsibility.",
+        items: [
+          { formula: "1 day", price: "2,000 FCFA" },
+          { formula: "3 days (short run)", price: "6,000 FCFA" },
+          { formula: "7 days (weekly)", price: "14,000 FCFA" },
+          { formula: "30 days (monthly)", price: "60,000 FCFA" },
+        ],
+      },
+      conditions: {
+        heading: "General conditions",
+        items: [
+          {
+            icon: "💰",
+            title: "Ad budget",
+            desc: "Media budget remains the client's responsibility. GMS charges a 12% management fee on the invested budget.",
+          },
+          {
+            icon: "📅",
+            title: "−10% quarterly commitment",
+            desc: "Discount on the monthly subscription with upfront quarterly billing.",
+          },
+          {
+            icon: "🗓️",
+            title: "−15% annual commitment",
+            desc: "Discount on the monthly subscription with upfront semi-annual billing.",
+          },
+          {
+            icon: "📊",
+            title: "Monthly report included",
+            desc: "Every plan includes a monthly report showing the Proof indicators defined for that tier.",
+          },
+          {
+            icon: "🔄",
+            title: "Plan upgrade / downgrade",
+            desc: "Possible at any time, effective the following month, with no transition fee.",
+          },
+        ],
+      },
     },
     fbAds: {
       label: "Ad campaign",
@@ -1322,75 +1552,201 @@ function Services() {
 function Packs() {
   const { t } = useLang();
   const p = t.packs;
+  const [active, setActive] = useState(0);
+  const pack = p.items[active];
+
+  const networkIcons: Record<string, string> = {
+    Facebook: "📘",
+    TikTok: "🎵",
+    Instagram: "📸",
+    LinkedIn: "💼",
+    YouTube: "▶️",
+    WhatsApp: "💬",
+  };
+
   return (
     <section id="packs" aria-labelledby="packs-heading" className="relative">
       <div className="absolute inset-0 bg-gradient-hero opacity-60" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+
+        {/* ── En-tête ── */}
         <div className="mx-auto max-w-2xl text-center" data-reveal>
-          <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
-            {p.label}
-          </div>
+          <div className="mb-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">{p.label}</div>
           <h2 id="packs-heading" className="font-display text-4xl font-black tracking-tight md:text-5xl">
-            {p.heading1}{" "}
+            {p.heading1}
             <span className="text-gradient">{p.headingHighlight}</span>
             {p.heading2}
           </h2>
           <p className="mt-4 text-muted-foreground">{p.sub}</p>
+          <div className="mx-auto mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card/70 px-5 py-2 text-xs text-muted-foreground">
+            <span className="font-black text-primary">PSSP</span>
+            <span aria-hidden>·</span>
+            <span>{p.method}</span>
+          </div>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {p.items.map((pack, i) => (
-            <article
-              key={pack.name}
-              data-reveal
-              style={{ "--reveal-delay": `${i * 100}ms` } as React.CSSProperties}
+        {/* ── Sélecteur de packs ── */}
+        <div className="mt-12 flex flex-wrap justify-center gap-2.5" data-reveal>
+          {p.items.map((item, i) => (
+            <button
+              key={item.name}
+              onClick={() => setActive(i)}
+              aria-pressed={active === i}
               className={
-                "relative rounded-3xl border p-8 transition-all duration-300 " +
-                (pack.accent
-                  ? "border-transparent bg-card shadow-glow-magenta hover:-translate-y-1.5"
-                  : "border-border bg-card/70 shadow-card hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-glow-cyan")
+                "rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 " +
+                (active === i
+                  ? "bg-gradient-brand text-primary-foreground shadow-glow-cyan scale-[1.03]"
+                  : "border border-border bg-card/70 text-muted-foreground hover:border-primary/40 hover:text-foreground")
               }
             >
-              {pack.accent && (
-                <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-brand p-px" aria-hidden>
-                  <div className="h-full w-full rounded-[calc(1.5rem-1px)] bg-card" />
+              {item.name}
+              <span className={"ml-2 text-xs font-black " + (active === i ? "text-primary-foreground/80" : "text-primary")}>
+                {item.price}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* ── Panneau détail du pack actif ── */}
+        <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <div className="grid gap-0 md:grid-cols-2">
+            {/* Gauche — infos */}
+            <div className="p-8 md:p-12">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-3xl font-black">{pack.name}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{pack.tag}</p>
                 </div>
-              )}
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-2xl font-extrabold">{pack.name}</h3>
                 {pack.accent && (
-                  <span className="rounded-full bg-gradient-brand px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
+                  <span className="shrink-0 rounded-full bg-gradient-brand px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
                     {p.popular}
                   </span>
                 )}
               </div>
-              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{pack.tag}</div>
-              <div className="mt-6">
-                <span className="font-display text-3xl font-black">{pack.price}</span>
-                <span className="text-sm text-muted-foreground"> {p.perMonth}</span>
+
+              <div className="mt-5">
+                <span className="font-display text-5xl font-black">{pack.price}</span>
+                <span className="ml-2 text-sm text-muted-foreground">{p.perMonth}</span>
               </div>
-              <ul className="mt-6 space-y-3">
-                {pack.features.map((f) => (
+
+              {/* Réseaux */}
+              <div className="mt-6">
+                <p className="mb-2.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{p.networks}</p>
+                <div className="flex flex-wrap gap-2">
+                  {(pack.networks as string[]).map((n) => (
+                    <span key={n} className="flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-semibold">
+                      <span aria-hidden>{networkIcons[n] ?? "🔗"}</span>{n}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Publications */}
+              <div className="mt-5 rounded-xl border border-border bg-background/40 px-4 py-3.5">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">{p.pubsPerMonth}</p>
+                <p className="mt-1 font-semibold text-foreground">{pack.pubs as string}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{pack.cadence as string}</p>
+              </div>
+
+              {/* Services inclus */}
+              <ul className="mt-5 space-y-2.5">
+                {(pack.features as string[]).map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm">
                     <span className="mt-0.5 flex-none text-primary" aria-hidden>✓</span>
-                    {f}
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
+
               <a
-                href="#contact"
-                className={
-                  "mt-8 flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold transition-all hover:scale-[1.02] " +
-                  (pack.accent
-                    ? "bg-gradient-brand text-primary-foreground shadow-glow-cyan hover:shadow-glow-magenta"
-                    : "border border-border bg-card hover:border-primary/40 hover:bg-secondary/60")
-                }
+                href={`https://wa.me/237659252877?text=${encodeURIComponent("Bonjour GMS-DC, je suis intéressé par le Pack " + pack.name + " à " + pack.price + " FCFA/mois.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-[1.02] hover:shadow-glow-magenta"
               >
-                {p.cta}
+                {p.cta} — {pack.name} →
               </a>
-            </article>
-          ))}
+            </div>
+
+            {/* Droite — PSSP */}
+            <div className="flex flex-col justify-center gap-4 border-t border-border bg-background/30 p-8 md:border-l md:border-t-0 md:p-12">
+              <div className="rounded-2xl border border-primary/25 bg-primary/[0.07] p-5">
+                <p className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary">
+                  <span aria-hidden>⚡</span>{p.tabs.promise}
+                </p>
+                <p className="text-sm leading-relaxed">{pack.promise as string}</p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card/50 p-5">
+                <p className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+                  <span aria-hidden>🧭</span>{p.tabs.strategy}
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{pack.strategy as string}</p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card/50 p-5">
+                <p className="mb-2 flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+                  <span aria-hidden>📊</span>{p.tabs.proof}
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{pack.proof as string}</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* ── Services ponctuels + Campagnes à la carte ── */}
+        <div className="mt-14 grid gap-8 md:grid-cols-2" data-reveal>
+          {/* Services ponctuels */}
+          <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
+            <div className="mb-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">{p.addons.label}</div>
+            <h3 className="font-display text-xl font-black">{p.addons.heading}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{p.addons.sub}</p>
+            <table className="mt-6 w-full text-sm" aria-label={p.addons.heading}>
+              <tbody>
+                {p.addons.items.map((row, i) => (
+                  <tr key={row.service} className={"border-b border-border/50 " + (i % 2 === 0 ? "bg-background/25" : "")}>
+                    <td className="py-2.5 pl-2 pr-4 text-foreground">{row.service}</td>
+                    <td className="py-2.5 pr-2 text-right font-semibold text-primary whitespace-nowrap">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-4 text-xs italic text-muted-foreground/70">{p.addons.note}</p>
+          </div>
+
+          {/* Campagnes à la carte */}
+          <div className="flex flex-col rounded-3xl border border-border bg-card p-8 shadow-card">
+            <div className="mb-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">{p.adCarte.label}</div>
+            <h3 className="font-display text-xl font-black">{p.adCarte.heading}</h3>
+            <p className="mt-1.5 text-sm text-muted-foreground">{p.adCarte.sub}</p>
+            <table className="mt-6 w-full text-sm" aria-label={p.adCarte.heading}>
+              <tbody>
+                {p.adCarte.items.map((row, i) => (
+                  <tr key={row.formula} className={"border-b border-border/50 " + (i % 2 === 0 ? "bg-background/25" : "")}>
+                    <td className="py-2.5 pl-2 pr-4 text-foreground">{row.formula}</td>
+                    <td className="py-2.5 pr-2 text-right font-semibold text-primary whitespace-nowrap">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="mt-5 flex-1 rounded-xl border border-border bg-background/40 p-4 text-xs text-muted-foreground">
+              <span aria-hidden>💡 </span>{p.adCarte.note}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Conditions générales ── */}
+        <div className="mt-10" data-reveal>
+          <h3 className="mb-6 text-center font-display text-xl font-black">{p.conditions.heading}</h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {p.conditions.items.map((c) => (
+              <div key={c.title} className="rounded-2xl border border-border bg-card/70 p-5 transition-all hover:border-primary/30 hover:shadow-card">
+                <span className="text-2xl" aria-hidden>{c.icon}</span>
+                <p className="mt-3 text-sm font-bold leading-snug">{c.title}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
