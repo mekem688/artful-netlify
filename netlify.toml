@@ -1,0 +1,60 @@
+# ═══════════════════════════════════════════════════════════════
+#  GMS-DC — Configuration de déploiement Netlify
+#  TanStack Start + Nitro (preset netlify)
+# ═══════════════════════════════════════════════════════════════
+
+[build]
+  command         = "bun run build"
+  publish         = ".output/public"
+
+  # Bun est disponible nativement sur Netlify depuis 2024.
+  # Si ce n'est pas le cas, remplacez les commandes `bun` par `npm run`.
+
+[build.environment]
+  NODE_VERSION  = "20"
+  BUN_VERSION   = "1"
+  # Force le preset Nitro pour Netlify (SSR via Netlify Functions v2).
+  # Si @lovable.dev/vite-tanstack-config ignore cet env, le build reste
+  # en preset cloudflare — les assets statiques sont quand même servis
+  # et le fallback SPA ci-dessous prend le relais.
+  NITRO_PRESET  = "netlify"
+
+# ── Plugins (décommentez si vous utilisez la Netlify CLI) ──────
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"   # Non, ce projet n'est pas Next.js
+#
+# Pour une détection automatique du framework TanStack Start,
+# aucun plugin supplémentaire n'est requis sur Netlify.
+
+# ── En-têtes de sécurité ───────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+# ── Cache long terme pour les assets versionnés ────────────────
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Fallback SPA — requis pour le routage côté client ─────────
+# Toutes les URLs inconnues renvoient vers index.html (200, pas 404).
+# Garde en dernier pour ne pas intercepter les vraies ressources.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
