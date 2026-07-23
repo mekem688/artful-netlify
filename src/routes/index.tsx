@@ -1269,6 +1269,44 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+
+      {/* ── Barre langue — visible dès l'entrée ── */}
+      <div className="border-b border-border/30 bg-primary/[0.05]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-1.5 md:px-8">
+          <p className="hidden text-[11px] text-muted-foreground/70 sm:block">
+            🌍 Choisissez votre langue / Choose your language
+          </p>
+          <div className="mx-auto sm:mx-0 inline-flex rounded-full border border-border/60 bg-background/50 p-0.5">
+            <button
+              type="button"
+              onClick={() => setLang("fr")}
+              aria-pressed={lang === "fr"}
+              className={
+                "rounded-full px-4 py-1 text-[11px] font-bold transition-all " +
+                (lang === "fr"
+                  ? "bg-gradient-brand text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground")
+              }
+            >
+              🇫🇷 Français
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+              className={
+                "rounded-full px-4 py-1 text-[11px] font-bold transition-all " +
+                (lang === "en"
+                  ? "bg-gradient-brand text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground")
+              }
+            >
+              🇬🇧 English
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-8">
         {/* Logo */}
         <a href="#top" className="flex items-center gap-3 min-w-0">
@@ -1299,17 +1337,6 @@ function Header() {
 
         {/* Controls */}
         <div className="flex items-center gap-2">
-          {/* Language toggle */}
-          <button
-            type="button"
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            aria-label="Switch language"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/50 px-3 py-2 text-xs font-semibold text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground"
-          >
-            <Globe className="h-3.5 w-3.5" />
-            {lang === "fr" ? "EN" : "FR"}
-          </button>
-
           {/* Theme toggle */}
           <button
             type="button"
