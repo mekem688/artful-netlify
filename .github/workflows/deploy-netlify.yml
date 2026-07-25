@@ -1,0 +1,50 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Récupération du code ────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Bun ────────────────────────────────────────────────
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # ── 3. Dépendances (cache automatique via setup-bun) ──────
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # ── 4. Build (preset Netlify forcé) ───────────────────────
+      - name: Build
+        run: bun run build
+        env:
+          NITRO_PRESET: netlify
+          NODE_ENV: production
+
+      # ── 5. Déploiement Netlify ────────────────────────────────
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: .output/public
+          production-branch: main
+          production-deploy: ${{ github.ref == 'refs/heads/main' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy #${{ github.run_number }} — ${{ github.event.head_commit.message }}"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          enable-commit-status: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
