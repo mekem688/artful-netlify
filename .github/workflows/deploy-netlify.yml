@@ -22,11 +22,11 @@ jobs:
         with:
           bun-version: latest
 
-      # ── 3. Dépendances (cache automatique via setup-bun) ──────
+      # ── 3. Dépendances ────────────────────────────────────────
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      # ── 4. Build (preset Netlify forcé) ───────────────────────
+      # ── 4. Build (sortie dans dist/) ──────────────────────────
       - name: Build
         run: bun run build
         env:
@@ -37,7 +37,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3
         with:
-          publish-dir: .output/public
+          publish-dir: dist
           production-branch: main
           production-deploy: ${{ github.ref == 'refs/heads/main' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
