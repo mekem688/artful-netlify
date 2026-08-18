@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://gms-dc.lovable.app";
+const BASE_URL = (
+  import.meta.env.VITE_SITE_URL || "https://gms-dc.lovable.app"
+).replace(/\/+$/, "");
 const LAST_MOD = "2026-07-17";
 
 export const Route = createFileRoute("/sitemap.xml")({

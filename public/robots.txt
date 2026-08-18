@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://gms-dc.lovable.app/sitemap.xml
