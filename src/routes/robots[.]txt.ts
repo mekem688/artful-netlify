@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || "https://gms-dc.lovable.app"
-).replace(/\/+$/, "");
+const SITE_URL = "https://artful-netlify.vercel.app";
 
 export const Route = createFileRoute("/robots.txt")({
   server: {

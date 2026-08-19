@@ -13,9 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-const SITE_URL = (
-  import.meta.env.VITE_SITE_URL || "https://gms-dc.lovable.app"
-).replace(/\/+$/, "");
+const SITE_URL = "https://artful-netlify.vercel.app";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 const PHONE = "+237659252877";
 const EMAIL = "globalwebmarketingservice@gmail.com";
