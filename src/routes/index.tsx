@@ -15,6 +15,8 @@ import cat1 from "@/assets/catalogue/IMG_4437.jpeg";
 import cat2 from "@/assets/catalogue/IMG_4436.jpeg";
 import cat3 from "@/assets/catalogue/IMG_4428.jpeg";
 import cat4 from "@/assets/catalogue/IMG_4435.jpeg";
+import cat5 from "@/assets/catalogue/IMG_4431.jpeg";
+import cat6 from "@/assets/catalogue/IMG_4425.jpeg";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "fr" | "en";
@@ -394,6 +396,16 @@ const T = {
           title: "Luxklin SARL",
           category: "Logo & branding",
           desc: "Logo épuré pour société de nettoyage et d'entretien professionnel.",
+        },
+        {
+          title: "GMS-DC",
+          category: "Carrousel éducatif",
+          desc: "Publication pédagogique pour expliquer les bonnes pratiques de communication digitale.",
+        },
+        {
+          title: "MCG Group & Co",
+          category: "Identité visuelle",
+          desc: "Création de logo pour une entreprise spécialisée dans l'import-export et la logistique.",
         },
       ],
     },
@@ -893,6 +905,16 @@ const T = {
           category: "Logo & branding",
           desc: "Clean logo for a professional cleaning and maintenance company.",
         },
+        {
+          title: "GMS-DC",
+          category: "Educational carousel",
+          desc: "Educational post explaining the fundamentals of consistent digital communication.",
+        },
+        {
+          title: "MCG Group & Co",
+          category: "Visual identity",
+          desc: "Logo design for a company specializing in import/export and logistics.",
+        },
       ],
     },
     testimonials: {
@@ -1120,7 +1142,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const catalogueAssets = [cat1, cat2, cat3, cat4];
+const catalogueAssets = [cat1, cat2, cat3, cat4, cat5, cat6];
 
 const statsValues = [15, 0, 5, 0];
 
