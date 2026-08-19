@@ -11,10 +11,10 @@ import {
 import { Menu, X, ZoomIn, ChevronDown, Sun, Moon, Globe } from "lucide-react";
 import heroImg from "@/assets/hero-network.jpg";
 import logoImg from "@/assets/gms-logo.png";
-import cat1 from "@/assets/IMG_4437.jpeg.asset.json";
-import cat2 from "@/assets/IMG_4436.jpeg.asset.json";
-import cat3 from "@/assets/IMG_4428.jpeg.asset.json";
-import cat4 from "@/assets/IMG_4435.jpeg.asset.json";
+import cat1 from "@/assets/catalogue/IMG_4437.jpeg";
+import cat2 from "@/assets/catalogue/IMG_4436.jpeg";
+import cat3 from "@/assets/catalogue/IMG_4428.jpeg";
+import cat4 from "@/assets/catalogue/IMG_4435.jpeg";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "fr" | "en";
@@ -1120,7 +1120,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const catalogueAssets = [cat1.url, cat2.url, cat3.url, cat4.url];
+const catalogueAssets = [cat1, cat2, cat3, cat4];
 
 const statsValues = [15, 0, 5, 0];
 
