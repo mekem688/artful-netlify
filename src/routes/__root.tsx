@@ -12,8 +12,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-// ── Constants ─────────────────────────────────────────────────────────────────
-const SITE_URL = "https://artful-netlify.vercel.app";
+// ── Constants ──────────────────────────────────────────────────────────
+const SITE_URL = "https://classy-cendol-219ec6.netlify.app";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 const PHONE = "+237659252877";
 const EMAIL = "globalwebmarketingservice@gmail.com";
@@ -141,7 +141,7 @@ const faqSchema = {
       name: "Pourquoi mon profil Facebook ou Instagram manque de crédibilité ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Un profil incomplet — sans numéro, sans adresse, sans description claire, sans photo sérieuse — crée un doute immédiat chez le client potentiel. GMS-DC optimise votre profil pour inspirer confiance dès le premier regard.",
+        text: "Un profil incomplet — sans numéro, sans adresse, sans description claire, sans photo sérieuse — crée un doute immédiat chez le client potentiel. GMS-DC optimise votre profil pour le rendre professionnel et fiable.",
       },
     },
     {
@@ -149,7 +149,7 @@ const faqSchema = {
       name: "À quelle fréquence faut-il publier sur les réseaux sociaux ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Des publications irrégulières donnent l'impression que l'activité est arrêtée. GMS-DC établit un calendrier éditorial régulier et automatisé pour maintenir votre présence en ligne 7 jours sur 7.",
+        text: "Des publications irrégulières donnent l'impression que l'activité est arrêtée. GMS-DC établit un calendrier éditorial régulier et automatisé pour maintenir votre présence active.",
       },
     },
     {
@@ -157,7 +157,7 @@ const faqSchema = {
       name: "Comment obtenir plus d'avis et de témoignages clients ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GMS-DC met en place des stratégies de collecte d'avis : relances automatiques post-achat, mise en avant des témoignages existants et création de contenus preuve sociale pour rassurer vos prospects.",
+        text: "GMS-DC met en place des stratégies de collecte d'avis : relances automatiques post-achat, mise en avant des témoignages existants et création de contenus preuve sociale.",
       },
     },
     {
@@ -165,7 +165,7 @@ const faqSchema = {
       name: "Comment ne plus rater les messages de prospects sur WhatsApp ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GMS-DC configure des réponses automatiques WhatsApp Business qui qualifient les prospects 24h/24 et vous transfèrent les demandes chaudes, pour qu'aucun client potentiel ne reparte sans réponse.",
+        text: "GMS-DC configure des réponses automatiques WhatsApp Business qui qualifient les prospects 24h/24 et vous transfèrent les demandes chaudes.",
       },
     },
     {
@@ -173,7 +173,7 @@ const faqSchema = {
       name: "Quels sont les tarifs des packs de community management ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GMS-DC propose trois formules : Pack Starter à 100 000 FCFA/mois, Pack Standard à 220 000 FCFA/mois (le plus populaire), et Pack Premium à 400 000 FCFA/mois. Paiement possible par Mobile Money, virement ou espèces.",
+        text: "GMS-DC propose trois formules : Pack Starter à 100 000 FCFA/mois, Pack Standard à 220 000 FCFA/mois (le plus populaire), et Pack Premium à 400 000 FCFA/mois.",
       },
     },
   ],
@@ -186,7 +186,7 @@ const webPageSchema = {
   url: SITE_URL,
   name: "GMS-DC — Agence marketing digital & community management au Cameroun",
   description:
-    "GMS-DC (Global Web Marketing Service) — agence digitale à Douala, Cameroun. Community management, publicité Meta & TikTok Ads, identité visuelle, automatisation WhatsApp et sites web pour PME.",
+    "GMS-DC (Global Web Marketing Service) — agence digitale à Douala, Cameroun. Community management, publicité Meta & TikTok Ads, identité visuelle, automatisation WhatsApp et sites web pour PME camerounaises.",
   inLanguage: "fr-FR",
   isPartOf: { "@id": SITE_URL },
   about: { "@id": `${SITE_URL}/#business` },
@@ -212,7 +212,7 @@ function NotFoundComponent() {
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-[1.02] hover:shadow-glow-magenta"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-105"
           >
             Retour à l'accueil
             <span aria-hidden>→</span>
@@ -245,7 +245,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-[1.02]"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-105"
           >
             Réessayer
           </button>
@@ -261,7 +261,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-// ── Root route ────────────────────────────────────────────────────────────────
+// ── Root route ──────────────────────────────────────────────────────────
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -278,7 +278,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "GMS, GMS-DC, GMS Douala, GMS Cameroun, Global Web Marketing Service, agence marketing digital Cameroun, community management Douala, publicité Meta Ads Cameroun, TikTok Ads Cameroun, création site web Douala, automatisation WhatsApp Cameroun, identité visuelle Douala, agence digitale Douala, marketing digital PME Cameroun",
+          "GMS, GMS-DC, GMS Douala, GMS Cameroun, Global Web Marketing Service, agence marketing digital Cameroun, community management Douala, publicité Meta Ads Cameroun, TikTok Ads Cameroun, sites web Cameroun",
       },
       { name: "author", content: "GMS-DC — Global Web Marketing Service" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
@@ -295,7 +295,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "msapplication-TileColor", content: "#1a0f2e" },
 
       // ── Verification ──────────────────────────────────────────────────────
-      { name: "google-site-verification", content: "Vofc1QxiwroqwmfkBImW5EDSVtu9M8zNzqG_Kzs06YI" },
+      { name: "google-site-verification", content: "6fBOYBkJhyzstWKObZ7XWRQ60tHcZPofE5UQO6BVVQo" },
 
       // ── Open Graph ────────────────────────────────────────────────────────
       { property: "og:site_name", content: "GMS-DC" },
