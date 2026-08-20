@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://classy-cendol-219ec6.netlify.app";
+const BASE_URL = "https://gms-dc.netlify.app";
 const LAST_MOD = "2026-07-17";
 
 export const Route = createFileRoute("/sitemap.xml")({
