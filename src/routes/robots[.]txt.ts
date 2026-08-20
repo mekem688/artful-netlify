@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const SITE_URL = "https://artful-netlify.vercel.app";
+const SITE_URL = "https://classy-cendol-219ec6.netlify.app";
 
 export const Route = createFileRoute("/robots.txt")({
   server: {
