@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 // ── Constants ──────────────────────────────────────────────────────────
-const const SITE_URL = "https://gms-dc.netlify.app";
+const SITE_URL = "https://gms-dc.netlify.app";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 const PHONE = "+237659252877";
 const EMAIL = "globalwebmarketingservice@gmail.com";
