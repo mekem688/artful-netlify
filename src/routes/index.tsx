@@ -106,7 +106,7 @@ const T = {
       items: [
         {
           name: "Starter",
-          price: "35 000",
+          price: "50 000",
           tag: "Commerces et PME qui démarrent en ligne",
           networks: ["Facebook", "TikTok"],
           pubs: "12 visuels",
@@ -122,7 +122,7 @@ const T = {
         },
         {
           name: "Medium",
-          price: "60 000",
+          price: "75 000",
           tag: "PME visibles qui veulent une audience active",
           networks: ["Facebook", "TikTok"],
           pubs: "16 (8 visuels + 8 vidéos)",
@@ -215,14 +215,16 @@ const T = {
       },
       adCarte: {
         label: "Campagne à la carte",
-        heading: "Gestion de campagne au quotidien",
-        sub: "Hors pack — base 2 000 FCFA / jour. Budget média séparé.",
-        note: "Frais de gestion uniquement. Le budget publicitaire investi sur Meta reste à la charge du client.",
+        heading: "Grille tarifaire publicitaire",
+        sub: "Tarifs tout inclus (budget publicitaire et frais de gestion) selon la durée choisie.",
+        note: "Frais de commission avec suivi : 10 000 FCFA par mois ou 5 000 FCFA par semaine.",
+        headers: { duration: "Durée", starter: "Starter", message: "Message", pme: "PME", premium: "Premium" },
         items: [
-          { formula: "1 jour", price: "2 000 FCFA" },
-          { formula: "3 jours (formule courte)", price: "6 000 FCFA" },
-          { formula: "7 jours (hebdomadaire)", price: "14 000 FCFA" },
-          { formula: "30 jours (mensuel)", price: "60 000 FCFA" },
+          { formula: "1 jour", starter: "2 000 FCFA", message: "3 000 FCFA", pme: "5 000 FCFA", premium: "10 000 FCFA" },
+          { formula: "3 jours", starter: "6 000 FCFA", message: "9 000 FCFA", pme: "15 000 FCFA", premium: "30 000 FCFA" },
+          { formula: "7 jours", starter: "14 000 FCFA", message: "21 000 FCFA", pme: "35 000 FCFA", premium: "70 000 FCFA" },
+          { formula: "15 jours", starter: "30 000 FCFA", message: "45 000 FCFA", pme: "75 000 FCFA", premium: "150 000 FCFA" },
+          { formula: "30 jours", starter: "60 000 FCFA", message: "90 000 FCFA", pme: "150 000 FCFA", premium: "300 000 FCFA" },
         ],
       },
       conditions: {
@@ -614,7 +616,7 @@ const T = {
       items: [
         {
           name: "Starter",
-          price: "35 000",
+          price: "50 000",
           tag: "Businesses and SMEs getting online for the first time",
           networks: ["Facebook", "TikTok"],
           pubs: "12 visuals",
@@ -630,7 +632,7 @@ const T = {
         },
         {
           name: "Medium",
-          price: "60 000",
+          price: "75 000",
           tag: "Visible SMEs that want an engaged, not just passive, audience",
           networks: ["Facebook", "TikTok"],
           pubs: "16 (8 visuals + 8 videos)",
@@ -722,15 +724,17 @@ const T = {
         ],
       },
       adCarte: {
-        label: "Pay-per-day campaigns",
-        heading: "Daily campaign management",
-        sub: "Outside plans — base 2,000 FCFA / day. Media budget separate.",
-        note: "Management fees only. The ad budget invested on Meta remains the client's responsibility.",
+        label: "Advertising campaign pricing",
+        heading: "Campaign pricing grid",
+        sub: "All-inclusive rates (ad budget and management fees) based on the selected duration.",
+        note: "Commission with monitoring: 10,000 FCFA monthly or 5,000 FCFA weekly.",
+        headers: { duration: "Duration", starter: "Starter", message: "Message", pme: "SME", premium: "Premium" },
         items: [
-          { formula: "1 day", price: "2,000 FCFA" },
-          { formula: "3 days (short run)", price: "6,000 FCFA" },
-          { formula: "7 days (weekly)", price: "14,000 FCFA" },
-          { formula: "30 days (monthly)", price: "60,000 FCFA" },
+          { formula: "1 day", starter: "2,000 FCFA", message: "3,000 FCFA", pme: "5,000 FCFA", premium: "10,000 FCFA" },
+          { formula: "3 days", starter: "6,000 FCFA", message: "9,000 FCFA", pme: "15,000 FCFA", premium: "30,000 FCFA" },
+          { formula: "7 days", starter: "14,000 FCFA", message: "21,000 FCFA", pme: "35,000 FCFA", premium: "70,000 FCFA" },
+          { formula: "15 days", starter: "30,000 FCFA", message: "45,000 FCFA", pme: "75,000 FCFA", premium: "150,000 FCFA" },
+          { formula: "30 days", starter: "60,000 FCFA", message: "90,000 FCFA", pme: "150,000 FCFA", premium: "300,000 FCFA" },
         ],
       },
       conditions: {
@@ -1766,16 +1770,30 @@ function Packs() {
             <div className="mb-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">{p.adCarte.label}</div>
             <h3 className="font-display text-xl font-black">{p.adCarte.heading}</h3>
             <p className="mt-1.5 text-sm text-muted-foreground">{p.adCarte.sub}</p>
-            <table className="mt-6 w-full text-sm" aria-label={p.adCarte.heading}>
-              <tbody>
-                {p.adCarte.items.map((row, i) => (
-                  <tr key={row.formula} className={"border-b border-border/50 " + (i % 2 === 0 ? "bg-background/25" : "")}>
-                    <td className="py-2.5 pl-2 pr-4 text-foreground">{row.formula}</td>
-                    <td className="py-2.5 pr-2 text-right font-semibold text-primary whitespace-nowrap">{row.price}</td>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[640px] text-sm" aria-label={p.adCarte.heading}>
+                <thead>
+                  <tr className="border-b border-border text-left text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <th className="py-2.5 pl-2 pr-4">{p.adCarte.headers.duration}</th>
+                    <th className="px-2 py-2.5 text-right">{p.adCarte.headers.starter}</th>
+                    <th className="px-2 py-2.5 text-right">{p.adCarte.headers.message}</th>
+                    <th className="px-2 py-2.5 text-right">{p.adCarte.headers.pme}</th>
+                    <th className="py-2.5 pl-2 pr-2 text-right">{p.adCarte.headers.premium}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {p.adCarte.items.map((row, i) => (
+                    <tr key={row.formula} className={"border-b border-border/50 " + (i % 2 === 0 ? "bg-background/25" : "")}>
+                      <td className="py-2.5 pl-2 pr-4 text-foreground">{row.formula}</td>
+                      <td className="px-2 py-2.5 text-right font-semibold text-primary whitespace-nowrap">{row.starter}</td>
+                      <td className="px-2 py-2.5 text-right font-semibold text-primary whitespace-nowrap">{row.message}</td>
+                      <td className="px-2 py-2.5 text-right font-semibold text-primary whitespace-nowrap">{row.pme}</td>
+                      <td className="py-2.5 pl-2 pr-2 text-right font-semibold text-primary whitespace-nowrap">{row.premium}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             <div className="mt-5 flex-1 rounded-xl border border-border bg-background/40 p-4 text-xs text-muted-foreground">
               <span aria-hidden>💡 </span>{p.adCarte.note}
             </div>
