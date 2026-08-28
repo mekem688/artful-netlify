@@ -21,6 +21,7 @@ import cat6 from "@/assets/catalogue/IMG_4425.jpeg";
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "fr" | "en";
 type Theme = "dark" | "light";
+type SocialPlatform = "facebook" | "instagram" | "linkedin" | "tiktok" | "youtube" | "whatsapp";
 
 // ── Translations ──────────────────────────────────────────────────────────────
 const T = {
@@ -1608,19 +1609,74 @@ function Services() {
   );
 }
 
+function PlatformIcon({ platform, size = 18 }: { platform: SocialPlatform; size?: number }) {
+  const svgProps = {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": true,
+    focusable: false,
+  };
+
+  switch (platform) {
+    case "facebook":
+      return (
+        <svg {...svgProps}>
+          <path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V9c0-.6.4-1 1-1Z" />
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg {...svgProps}>
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+        </svg>
+      );
+    case "linkedin":
+      return (
+        <svg {...svgProps}>
+          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+          <circle cx="8" cy="9" r="1.2" fill="currentColor" />
+          <path fill="currentColor" d="M7 11h2v6H7v-6Zm4 0h2v.9c.5-.7 1.3-1.2 2.5-1.2 2 0 3.5 1.3 3.5 4V17h-2v-2.1c0-1.2-.5-2-1.5-2-1.1 0-1.5.8-1.5 2V17h-2v-6Z" />
+        </svg>
+      );
+    case "tiktok":
+      return (
+        <svg {...svgProps}>
+          <path fill="currentColor" d="M14 3h3c.2 1.8 1.2 3.2 3 3.8v3.1c-1.1-.1-2.1-.5-3-1v6.2a5.9 5.9 0 1 1-5.9-5.9c.4 0 .8 0 1.2.1v3.1a3 3 0 1 0 1.7 2.7V3Z" />
+        </svg>
+      );
+    case "youtube":
+      return (
+        <svg {...svgProps}>
+          <path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.8 15.7V8.3l6.3 3.7-6.3 3.7Z" />
+        </svg>
+      );
+    case "whatsapp":
+      return (
+        <svg {...svgProps}>
+          <path fill="currentColor" d="M12 2a9.9 9.9 0 0 0-8.6 14.8L2 22l5.4-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.8.9-3.1-.2-.3A8 8 0 1 1 12 20Zm4.4-6.1c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1a6.2 6.2 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.4-.5c.1-.1.1-.3.2-.4 0-.1 0-.3-.1-.4l-.7-1.6c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.5.2a2 2 0 0 0-.7 1.5c0 .9.7 1.8.8 1.9.1.1 1.4 2.2 3.5 3.1.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1.1.2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2Z" />
+        </svg>
+      );
+  }
+}
+
 function Packs() {
   const { t } = useLang();
   const p = t.packs;
   const [active, setActive] = useState(0);
   const pack = p.items[active];
 
-  const networkIcons: Record<string, string> = {
-    Facebook: "📘",
-    TikTok: "🎵",
-    Instagram: "📸",
-    LinkedIn: "💼",
-    YouTube: "▶️",
-    WhatsApp: "💬",
+  const networkIcons: Record<string, SocialPlatform> = {
+    Facebook: "facebook",
+    TikTok: "tiktok",
+    Instagram: "instagram",
+    LinkedIn: "linkedin",
+    YouTube: "youtube",
+    WhatsApp: "whatsapp",
   };
 
   return (
@@ -1694,7 +1750,7 @@ function Packs() {
                 <div className="flex flex-wrap gap-2">
                   {(pack.networks as string[]).map((n) => (
                     <span key={n} className="flex items-center gap-1.5 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-semibold">
-                      <span aria-hidden>{networkIcons[n] ?? "🔗"}</span>{n}
+                      {networkIcons[n] ? <PlatformIcon platform={networkIcons[n]} size={14} /> : <span aria-hidden>🔗</span>}{n}
                     </span>
                   ))}
                 </div>
@@ -2505,7 +2561,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
                 >
-                  <span className="text-lg">📸</span>@global_webmarketing_services
+                  <span className="flex-none text-primary" aria-hidden><PlatformIcon platform="instagram" size={18} /></span>@global_webmarketing_services
                 </a>
                 <a
                   href="https://www.facebook.com/share/1ENuhoaej9/?mibextid=wwXIfr"
@@ -2513,7 +2569,7 @@ function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
                 >
-                  <span className="text-lg">📘</span>Global Webmarketing Services
+                  <span className="flex-none text-primary" aria-hidden><PlatformIcon platform="facebook" size={18} /></span>Global Webmarketing Services
                 </a>
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <span className="text-lg leading-none mt-0.5">📍</span>
