@@ -523,6 +523,8 @@ const T = {
       sub: "Audit digital gratuit sous 48 h. Sans engagement.",
       location: "Beedi, Immeuble J et T, face Total Énergie — Douala",
       mapLabel: "Nous trouver",
+      openMap: "Ouvrir dans Google Maps",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=GMS-DC%2C%20Beedi%2C%20Douala%2C%20Cameroun",
       name: "Votre nom",
       email: "Votre e-mail",
       message: "Parlez-nous de votre projet…",
@@ -1034,6 +1036,8 @@ const T = {
       sub: "Free digital audit in 48h. No commitment.",
       location: "Beedi, J & T Building, opposite Total Énergie — Douala",
       mapLabel: "Find us",
+      openMap: "Open in Google Maps",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=GMS-DC%2C%20Beedi%2C%20Douala%2C%20Cameroon",
       name: "Your name",
       email: "Your email",
       message: "Tell us about your project…",
@@ -2525,23 +2529,23 @@ function Contact() {
                 <div className="overflow-hidden rounded-2xl border border-border shadow-card">
                   <iframe
                     title="GMS-DC — Beedi, Douala"
-                    src="https://maps.google.com/maps?q=Beedi+Akwa+Douala+Cameroun&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=GMS-DC+Beedi+Douala+Cameroun&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="260"
                     style={{ border: 0, display: "block" }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    aria-label="Localisation GMS-DC — Beedi, Immeuble J et T, face Total Énergie, Douala"
+                    aria-label={c.location}
                   />
                 </div>
                 <a
-                  href="https://maps.google.com/maps?q=Beedi+Akwa+Douala+Cameroun"
+                  href={c.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
                 >
-                  <span>↗</span> Ouvrir dans Google Maps
+                  <span>↗</span> {c.openMap}
                 </a>
               </div>
             </div>
