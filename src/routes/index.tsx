@@ -416,7 +416,8 @@ const T = {
       heading1: "Ce que disent",
       headingHighlight: "nos clients",
       sub: "Des PME doualaïses et camerounaises qui ont fait confiance à GMS-DC pour leur présence digitale.",
-      cta: "Rejoindre nos clients satisfaits →",
+      cta: "Votre opinion sur GMS-DC nous intéresse. Publiez un avis sur notre fiche →",
+      reviewUrl: "https://g.page/r/Cb3hlAubt-5uEBI/review",
       items: [
         {
           name: "Rodrigue M.",
@@ -926,7 +927,8 @@ const T = {
       heading1: "What",
       headingHighlight: "our clients say",
       sub: "Cameroonian SMEs that trusted GMS-DC with their digital presence.",
-      cta: "Join our satisfied clients →",
+      cta: "Your opinion on GMS-DC matters to us. Post a review on our listing →",
+      reviewUrl: "https://g.page/r/Cb3hlAubt-5uEBI/review",
       items: [
         {
           name: "Rodrigue M.",
@@ -2344,7 +2346,9 @@ function Testimonials() {
         </div>
         <div className="mt-12 text-center" data-reveal>
           <a
-            href="#contact"
+            href={tm.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-all hover:scale-[1.03] hover:shadow-glow-magenta"
           >
             {tm.cta}
